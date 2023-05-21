@@ -14,10 +14,15 @@ import com.example.estudiando_para_parcial_mobiles.viewModel.BooksViewModel
 //los que hace el by viewModels es que nos crea una instancia
 // de la clase BooksViewModel y la guarda en el atributo viewModel
 // para que la podamos utilizar en el fragment BooksFragment
+
+//que significa by viewModels? significa que estamos delegando
+// la creacion de la instancia de la clase BooksViewModel a la clase Fragment
 class BooksFragment : Fragment() {
 
     private lateinit var binding: FragmentBooksBinding
-    private val viewModel: BooksViewModel by viewModels()
+    private val viewModel: BooksViewModel by viewModels {
+        BooksViewModel.Factory
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,5 +40,11 @@ class BooksFragment : Fragment() {
         )
         //esto significa que muestra toda la view que se encuentra en fragment_books.xml
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        viewModel.getBooks()
     }
 }
