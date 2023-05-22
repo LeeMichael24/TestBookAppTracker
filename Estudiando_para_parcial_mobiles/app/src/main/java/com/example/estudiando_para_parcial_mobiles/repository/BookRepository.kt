@@ -10,5 +10,5 @@ class BookRepository(private val books: List<Book>) {
 
     fun getBooks() = books
 
-    fun getBookById(author: Author) = books.filter {book -> book.authors.contains(author)  }
+    fun getBookById(author: Author) = books.filter {book -> book.authors.contains(author)}
 }

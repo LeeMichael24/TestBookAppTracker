@@ -1,8 +1,9 @@
-package com.example.estudiando_para_parcial_mobiles
+package com.example.estudiando_para_parcial_mobiles.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
+import com.example.estudiando_para_parcial_mobiles.R
 import com.example.estudiando_para_parcial_mobiles.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -15,6 +16,6 @@ class MainActivity : AppCompatActivity() {
 
         //utilizamos setContentView para inflar el layout de nuestra
         // actividad y así poder mostrarlo en pantalla activando data binding
-        binding = DataBindingUtil.setContentView(this,R.layout.activity_main)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
     }
 }

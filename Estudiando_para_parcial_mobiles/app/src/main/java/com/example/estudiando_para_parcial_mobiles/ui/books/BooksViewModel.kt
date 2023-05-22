@@ -1,4 +1,4 @@
-package com.example.estudiando_para_parcial_mobiles.viewModel
+package com.example.estudiando_para_parcial_mobiles.ui.books
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider.AndroidViewModelFactory.Companion.APPLICATION_KEY
@@ -17,7 +17,7 @@ import com.example.estudiando_para_parcial_mobiles.repository.BookRepository
 //Para que sirve crear una factory? para que cuando se cree una instancia de la
 // clase BooksViewModel se le pase como parametro el bookRepository que es el que
 // tiene la lista de libros y asi poder acceder a ella desde la clase BooksViewModel.
-class BooksViewModel(val bookRepository: BookRepository): ViewModel() {
+class BooksViewModel(private val bookRepository: BookRepository): ViewModel() {
 
     fun getBooks() = bookRepository.getBooks()
 

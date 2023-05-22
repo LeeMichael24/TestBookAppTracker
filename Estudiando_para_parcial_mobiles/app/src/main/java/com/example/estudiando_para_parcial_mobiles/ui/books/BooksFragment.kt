@@ -1,15 +1,15 @@
-package com.example.estudiando_para_parcial_mobiles.ui
+package com.example.estudiando_para_parcial_mobiles.ui.books
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
 import com.example.estudiando_para_parcial_mobiles.R
 import com.example.estudiando_para_parcial_mobiles.databinding.FragmentBooksBinding
-import com.example.estudiando_para_parcial_mobiles.viewModel.BooksViewModel
 
 //los que hace el by viewModels es que nos crea una instancia
 // de la clase BooksViewModel y la guarda en el atributo viewModel
@@ -45,6 +45,12 @@ class BooksFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.getBooks()
+        val adapter = BooksAdapter { book ->
+            Toast.makeText(requireContext(), "Click en ${book.title}", Toast.LENGTH_LONG).show()
+        }
+
+        adapter.submitData(viewModel.getBooks())
+
+        binding.recyclerViewBooks.adapter = adapter
     }
 }
